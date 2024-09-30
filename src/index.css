@@ -219,3 +219,18 @@ footer{
   color: var(--color-white);
   font-weight: 300;
 }
+
+/*Error page*/
+
+.center{
+  text-align: center;
+  padding-top: 5rem;
+  margin-inline: center;
+  display: block;
+  width: 100%;
+}
+
+
+.error-page h2{
+  margin-top: 3rem;
+}
