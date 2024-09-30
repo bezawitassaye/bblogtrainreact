@@ -1,12 +1,51 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
+import Category from "./components/Category"
+import Layout from './Layout';
+import Authorpost from "./components/Authorposts"
+import Authors from "./components/Authors"
+import Createpost from "./components/Createpost"
+import Dashboard from "./components/Dashboard"
+import Deletepost from "./components/Deletepost"
+import Editpost from "./components/Editpost"
+import Errorpage from "./components/Errorpage"
+import Home from "./components/Home"
+import Login from "./components/Login"
+import Logout from "./components/Logout"
+import Postdetail from "./components/Postdetail"
+import Register from "./components/Register"
+import Userprofile from "./components/Userprofile"
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+
+
+const router = createBrowserRouter([
+  {
+    path:"/",
+    element:<Layout/>,
+    errorElement:<Errorpage/>,
+    children:[
+      {index:true,element:<Home/>},
+      {path:"posts/:id",element:<Postdetail/>},
+      {path:"register",element:<Register/>},
+      {path:"login",element:<Login/>},
+      {path:"profile/:id",element:<Userprofile/>},
+      {path:"authors",element:<Authors/>},
+      {path:"create",element:<Createpost/>},
+      {path:"posts/categories/:category",element:<Category/>},
+      {path:"posts/users/:id",element:<Authorpost/>},
+      {path:"myposts/:id",element:<Dashboard/>},
+      {path:"posts/:id/edit",element:<Editpost/>},
+      {path:"logout",element:<Logout/>}
+    ]
+  }
+])
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <h1>hello</h1>
+    <RouterProvider router={router}/>
   </React.StrictMode>
 );
 
