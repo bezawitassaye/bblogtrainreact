@@ -7,13 +7,15 @@ const Posts = () => {
     const [posts,setPosts]=useState(DUMMY_POSTS)
   return (
 <section className='posts'>
-    <div className='container posts_container'>
+    {posts.length > 0?  <div className='container posts_container'>
     {
         posts.map(({id,thumbnail,category,title,desc,authorID})=>
         <Postitem key={id} postId={id} title={title} thumbnail={thumbnail} category={category} desc={desc} authorID={authorID} />)
     }
 
-    </div>
+    </div>:<h2 className='center'>No Posts found</h2>
+    }
+   
    
 
 </section>
